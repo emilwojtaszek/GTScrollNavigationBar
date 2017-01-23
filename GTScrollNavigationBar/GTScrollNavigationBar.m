@@ -139,7 +139,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
     CGRect frame = self.frame;
     CGFloat alpha = 1.0f;
     CGFloat maxY = [self statusBarTopOffset];
-    CGFloat minY = maxY - CGRectGetHeight(frame) + 1.0f;
+    CGFloat minY = maxY - CGRectGetHeight(frame) + 44.0f;
     // NOTE: plus 1px to prevent the navigation bar disappears in iOS < 7
     
     CGFloat contentInsetTop = self.scrollView.contentInset.top;
@@ -211,17 +211,17 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
         bool isViewHidden = view.hidden || view.alpha == 0.0f;
         if (isBackgroundView || isViewHidden)
             continue;
-        view.alpha = alpha;
+//        view.alpha = alpha;
     }
     self.frame = frame;
     
 
-    if (self.scrollView) {
-        CGRect parentViewFrame = self.scrollView.superview.frame;
-        parentViewFrame.origin.y += offsetY;
-        parentViewFrame.size.height -= offsetY;
-        self.scrollView.superview.frame = parentViewFrame;
-    }
+//    if (self.scrollView) {
+//        CGRect parentViewFrame = self.scrollView.superview.frame;
+//        parentViewFrame.origin.y += offsetY;
+//        parentViewFrame.size.height -= offsetY;
+//        self.scrollView.superview.frame = parentViewFrame;
+//    }
     
     if (animated) {
         [UIView commitAnimations];
